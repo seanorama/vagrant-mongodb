@@ -19,19 +19,19 @@ execute 'install_mongo_hacker' do
     'unzip /tmp/master.zip -d /tmp/',
     'cd /tmp/mongo-hacker-master',
     'make',
-    'ln -f mongo_hacker.js $HOME/.mongorc.js',
-    'chown root:    $HOME/.mongorc.js',
+    'ln -f mongo_hacker.js /root/.mongorc.js',
+    'chown root:    /root/.mongorc.js',
     'rm -rf /tmp/{mongo-hacker-master,master.zip}'
   ].join(' && ')
-  not_if { ::File.exists?('$HOME/.mongorc.js') }
+  not_if { ::File.exists?('/root/.mongorc.js') }
 end
 
 execute 'clean_up_vagrant_omnibus' do
-  command 'rm -f $HOME/install.sh'
+  command 'rm -f /root/install.sh'
 end
 
 cookbook_file 'public_ip' do
-  path  '$HOME/public_ip'
+  path  '/root/public_ip'
   owner 'root'
   group 'root'
   mode  '0755'
