@@ -2,7 +2,8 @@
 
 if vagrant status | grep -q 'not created'; then
   start_time=$(date +%s)
-  VAGRANT_EBS_RAID=1 vagrant up --provider=aws
+  #VAGRANT_EBS_RAID=1 vagrant up --provider=aws
+  vagrant up --provider rackspace
   stop_time=$(date +%s)
   echo "** Vagrant took $(($stop_time - $start_time))s"
 fi

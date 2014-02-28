@@ -53,10 +53,18 @@ about 5 mins.
   1. [Download and install Vagrant](http://www.vagrantup.com/downloads). Use
      the latest stable release (e.g. version 1.4 and above).
 
+  1. [Install RVM]():
+     ```bash
+     \curl -sSL https://get.rvm.io | bash -s stable --ruby
+     ```
+
   1. Install the required Vagrant plugins by running:
 
      ```bash
+     rvm use
      vagrant plugin install vagrant-aws
+     vagrant plugin install vagrant-openstack
+     vagrant plugin install vagrant-rackspace
      vagrant plugin install vagrant-berkshelf
      vagrant plugin install vagrant-omnibus
      ```
